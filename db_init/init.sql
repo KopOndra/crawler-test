@@ -1,0 +1,7 @@
+-- CREATE TABLE
+DROP TABLE IF EXISTS flats;
+CREATE TABLE flats (
+    id SERIAL PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    image_url VARCHAR(255) NOT NULL
+);

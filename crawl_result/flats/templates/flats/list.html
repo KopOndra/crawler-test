@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>List of Flats</title>
+</head>
+<body>
+    <div style="margin: auto; width: 50%; text-align: center;">
+        <span>
+            {% if page_obj.has_previous %}
+                <a href="?page=1">&laquo; first</a>
+                <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+            {% endif %}
+    
+            <span class="current">
+                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+            </span>
+    
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}">next</a>
+                <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
+    
+    <h1>List of Flats</h1>
+    <ul>            
+        <div style="width:100%">
+            {% for flat in page_obj %}
+                <div style="float:left; width:400px; height:400px;">
+                    {{ flat.title }}
+                    <img src="{{ flat.image_url }}" alt="{{ flat.title }}" style="max-width: 100%; height: auto;">
+                </div>
+            {% endfor%}
+        </div>
+    </ul>
+
+</body>
+</html>
